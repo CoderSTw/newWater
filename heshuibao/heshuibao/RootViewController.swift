@@ -27,6 +27,18 @@ class RootViewController: UITabBarController {
         tabBar.barTintColor = .white
         tabBar.backgroundColor = .white
     }
+    
+    override func viewDidAppear(_ animated: Bool){
+        
+        super.viewDidAppear(animated)
+        
+        // 判断是否为第一次 是的话就要跳转到begin
+        if UserDefaults.standard.bool(forKey: FIRST_TIME_KEY)==true { return }
+        let beginVC = BeginViewController()
+        beginVC.modalPresentationStyle = .fullScreen
+        present(beginVC, animated: true, completion: nil)
+        UserDefaults.standard.set(true, forKey: FIRST_TIME_KEY)
+    }
 
 }
 

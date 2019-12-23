@@ -22,6 +22,13 @@
 		9B42AEDD23ACBCC70080D261 /* BeginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B42AEDC23ACBCC70080D261 /* BeginViewController.swift */; };
 		9B42AEDF23ACBD000080D261 /* BeginIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B42AEDE23ACBD000080D261 /* BeginIndicatorView.swift */; };
 		9B42AEE123ACC3900080D261 /* BeginMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B42AEE023ACC3900080D261 /* BeginMainView.swift */; };
+		9B42AEE323AF6AB70080D261 /* BeginZeroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B42AEE223AF6AB70080D261 /* BeginZeroView.swift */; };
+		9B42AEE523AF6C1A0080D261 /* BeginFirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B42AEE423AF6C1A0080D261 /* BeginFirstView.swift */; };
+		9B42AEE723AF6F8B0080D261 /* BeginSecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B42AEE623AF6F8B0080D261 /* BeginSecondView.swift */; };
+		9B42AEE923AF70C20080D261 /* BeginThirdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B42AEE823AF70C20080D261 /* BeginThirdView.swift */; };
+		9B42AEEC23AF71730080D261 /* ComentTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B42AEEB23AF71730080D261 /* ComentTextCell.swift */; };
+		9B42AEEE23AF766A0080D261 /* BeginFourthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B42AEED23AF766A0080D261 /* BeginFourthView.swift */; };
+		9B42AEF023AFB08E0080D261 /* TodayBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B42AEEF23AFB08E0080D261 /* TodayBottomView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +50,13 @@
 		9B42AEDC23ACBCC70080D261 /* BeginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginViewController.swift; sourceTree = "<group>"; };
 		9B42AEDE23ACBD000080D261 /* BeginIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginIndicatorView.swift; sourceTree = "<group>"; };
 		9B42AEE023ACC3900080D261 /* BeginMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginMainView.swift; sourceTree = "<group>"; };
+		9B42AEE223AF6AB70080D261 /* BeginZeroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginZeroView.swift; sourceTree = "<group>"; };
+		9B42AEE423AF6C1A0080D261 /* BeginFirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginFirstView.swift; sourceTree = "<group>"; };
+		9B42AEE623AF6F8B0080D261 /* BeginSecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginSecondView.swift; sourceTree = "<group>"; };
+		9B42AEE823AF70C20080D261 /* BeginThirdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginThirdView.swift; sourceTree = "<group>"; };
+		9B42AEEB23AF71730080D261 /* ComentTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComentTextCell.swift; sourceTree = "<group>"; };
+		9B42AEED23AF766A0080D261 /* BeginFourthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginFourthView.swift; sourceTree = "<group>"; };
+		9B42AEEF23AFB08E0080D261 /* TodayBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayBottomView.swift; sourceTree = "<group>"; };
 		C48A113DB7AF3B82CDA90D5E /* Pods_heshuibao.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_heshuibao.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -95,6 +109,7 @@
 				9B42AECA23AC89CA0080D261 /* Record */,
 				9B42AECB23AC89CE0080D261 /* Reminder */,
 				9B42AECC23AC89D90080D261 /* Set */,
+				9B42AEEA23AF71500080D261 /* Comment */,
 				709F91A323AC839100712919 /* Assets.xcassets */,
 				709F91A523AC839100712919 /* LaunchScreen.storyboard */,
 				709F91A823AC839100712919 /* Info.plist */,
@@ -109,6 +124,7 @@
 				9B42AECD23AC89E90080D261 /* TodayViewController.swift */,
 				9B42AED723AC8D9A0080D261 /* TodayTopView.swift */,
 				9B42AED923ACBB4C0080D261 /* TodayDrinkView.swift */,
+				9B42AEEF23AFB08E0080D261 /* TodayBottomView.swift */,
 			);
 			path = Today;
 			sourceTree = "<group>";
@@ -143,8 +159,21 @@
 				9B42AEDC23ACBCC70080D261 /* BeginViewController.swift */,
 				9B42AEDE23ACBD000080D261 /* BeginIndicatorView.swift */,
 				9B42AEE023ACC3900080D261 /* BeginMainView.swift */,
+				9B42AEE223AF6AB70080D261 /* BeginZeroView.swift */,
+				9B42AEE423AF6C1A0080D261 /* BeginFirstView.swift */,
+				9B42AEE623AF6F8B0080D261 /* BeginSecondView.swift */,
+				9B42AEE823AF70C20080D261 /* BeginThirdView.swift */,
+				9B42AEED23AF766A0080D261 /* BeginFourthView.swift */,
 			);
 			path = Begin;
+			sourceTree = "<group>";
+		};
+		9B42AEEA23AF71500080D261 /* Comment */ = {
+			isa = PBXGroup;
+			children = (
+				9B42AEEB23AF71730080D261 /* ComentTextCell.swift */,
+			);
+			path = Comment;
 			sourceTree = "<group>";
 		};
 		DAF0973FB01DD5E0EB236B39 /* Frameworks */ = {
@@ -273,12 +302,19 @@
 				9B42AEDF23ACBD000080D261 /* BeginIndicatorView.swift in Sources */,
 				9B42AED423AC8A490080D261 /* SetViewController.swift in Sources */,
 				9B42AEE123ACC3900080D261 /* BeginMainView.swift in Sources */,
+				9B42AEF023AFB08E0080D261 /* TodayBottomView.swift in Sources */,
+				9B42AEEE23AF766A0080D261 /* BeginFourthView.swift in Sources */,
 				709F919B23AC838E00712919 /* AppDelegate.swift in Sources */,
 				9B42AED223AC8A450080D261 /* ReminderViewController.swift in Sources */,
 				9B42AED823AC8D9A0080D261 /* TodayTopView.swift in Sources */,
+				9B42AEE723AF6F8B0080D261 /* BeginSecondView.swift in Sources */,
 				9B42AECE23AC89E90080D261 /* TodayViewController.swift in Sources */,
+				9B42AEEC23AF71730080D261 /* ComentTextCell.swift in Sources */,
 				9B42AEDD23ACBCC70080D261 /* BeginViewController.swift in Sources */,
+				9B42AEE923AF70C20080D261 /* BeginThirdView.swift in Sources */,
+				9B42AEE523AF6C1A0080D261 /* BeginFirstView.swift in Sources */,
 				9B42AED023AC8A3E0080D261 /* RecordViewController.swift in Sources */,
+				9B42AEE323AF6AB70080D261 /* BeginZeroView.swift in Sources */,
 				9B42AED623AC8C590080D261 /* Extention.swift in Sources */,
 				9B42AEDA23ACBB4C0080D261 /* TodayDrinkView.swift in Sources */,
 			);

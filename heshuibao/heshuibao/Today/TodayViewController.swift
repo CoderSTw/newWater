@@ -22,7 +22,7 @@ class TodayViewController: UIViewController {
     private func setup() {
         // 1. top
         let todayTopView = TodayTopView()
-        todayTopView.delete(self)
+        todayTopView.delegate = self
         view.addSubview(todayTopView)
         todayTopView.snp.makeConstraints { (make) in
             make.left.right.top.equalTo(view)
@@ -31,6 +31,13 @@ class TodayViewController: UIViewController {
 
         
         // 2. bottom
+        let bottomView = TodayBottomView()
+        view.addSubview(bottomView)
+        bottomView.snp.makeConstraints { (make) in
+            make.left.right.equalTo(view)
+            make.bottom.equalTo(-50 - SafeAreaBottomHeight)
+            make.top.equalTo(todayTopView.snp.bottom)
+        }
     }
     
 }

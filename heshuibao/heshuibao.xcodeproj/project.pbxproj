@@ -29,6 +29,26 @@
 		9B42AEEC23AF71730080D261 /* ComentTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B42AEEB23AF71730080D261 /* ComentTextCell.swift */; };
 		9B42AEEE23AF766A0080D261 /* BeginFourthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B42AEED23AF766A0080D261 /* BeginFourthView.swift */; };
 		9B42AEF023AFB08E0080D261 /* TodayBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B42AEEF23AFB08E0080D261 /* TodayBottomView.swift */; };
+		9B42AEF223B05EA90080D261 /* TodayAddItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B42AEF123B05EA90080D261 /* TodayAddItem.swift */; };
+		9B42AEF423B062160080D261 /* TodayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B42AEF323B062160080D261 /* TodayViewModel.swift */; };
+		9B694F1E23B34FEE005E3F4B /* RecordTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B694F1D23B34FEE005E3F4B /* RecordTopView.swift */; };
+		9B694F2023B35755005E3F4B /* RecordTodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B694F1F23B35755005E3F4B /* RecordTodayView.swift */; };
+		9B694F2223B35B24005E3F4B /* RecordTodayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B694F2123B35B24005E3F4B /* RecordTodayCell.swift */; };
+		9B694F2423B3A127005E3F4B /* RecordWeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B694F2323B3A127005E3F4B /* RecordWeekView.swift */; };
+		9B694F2623B3A78E005E3F4B /* ReocrdWeekCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B694F2523B3A78E005E3F4B /* ReocrdWeekCell.swift */; };
+		9B694F2823B4840D005E3F4B /* RecordAllView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B694F2723B4840D005E3F4B /* RecordAllView.swift */; };
+		9B694F2A23B485EA005E3F4B /* ReocrdAllCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B694F2923B485EA005E3F4B /* ReocrdAllCell.swift */; };
+		9B694F2C23B48F24005E3F4B /* ReminderTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B694F2B23B48F24005E3F4B /* ReminderTimeView.swift */; };
+		9B694F2E23B48F2C005E3F4B /* ReminderRingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B694F2D23B48F2C005E3F4B /* ReminderRingView.swift */; };
+		9B694F3023B48F3E005E3F4B /* ReminderNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B694F2F23B48F3E005E3F4B /* ReminderNoteView.swift */; };
+		9B694F3223B49F28005E3F4B /* SetTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B694F3123B49F28005E3F4B /* SetTopView.swift */; };
+		9B694F3423B49F30005E3F4B /* SetBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B694F3323B49F30005E3F4B /* SetBottomView.swift */; };
+		9B694F3623B4A49A005E3F4B /* SetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B694F3523B4A49A005E3F4B /* SetCell.swift */; };
+		9B694F3823B5C04B005E3F4B /* RecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B694F3723B5C04B005E3F4B /* RecordViewModel.swift */; };
+		9B694F3D23B5C24D005E3F4B /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9B694F3B23B5C24D005E3F4B /* Model.xcdatamodeld */; };
+		9B694F4323B5C9DD005E3F4B /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B694F4223B5C9DD005E3F4B /* CoreDataManager.swift */; };
+		9B694F4523B5CC6F005E3F4B /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B694F4423B5CC6F005E3F4B /* AppViewModel.swift */; };
+		9BECAB1123B60743008D89FA /* RecordSnpItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BECAB1023B60743008D89FA /* RecordSnpItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +77,26 @@
 		9B42AEEB23AF71730080D261 /* ComentTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComentTextCell.swift; sourceTree = "<group>"; };
 		9B42AEED23AF766A0080D261 /* BeginFourthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginFourthView.swift; sourceTree = "<group>"; };
 		9B42AEEF23AFB08E0080D261 /* TodayBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayBottomView.swift; sourceTree = "<group>"; };
+		9B42AEF123B05EA90080D261 /* TodayAddItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayAddItem.swift; sourceTree = "<group>"; };
+		9B42AEF323B062160080D261 /* TodayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewModel.swift; sourceTree = "<group>"; };
+		9B694F1D23B34FEE005E3F4B /* RecordTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTopView.swift; sourceTree = "<group>"; };
+		9B694F1F23B35755005E3F4B /* RecordTodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTodayView.swift; sourceTree = "<group>"; };
+		9B694F2123B35B24005E3F4B /* RecordTodayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTodayCell.swift; sourceTree = "<group>"; };
+		9B694F2323B3A127005E3F4B /* RecordWeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordWeekView.swift; sourceTree = "<group>"; };
+		9B694F2523B3A78E005E3F4B /* ReocrdWeekCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReocrdWeekCell.swift; sourceTree = "<group>"; };
+		9B694F2723B4840D005E3F4B /* RecordAllView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordAllView.swift; sourceTree = "<group>"; };
+		9B694F2923B485EA005E3F4B /* ReocrdAllCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReocrdAllCell.swift; sourceTree = "<group>"; };
+		9B694F2B23B48F24005E3F4B /* ReminderTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderTimeView.swift; sourceTree = "<group>"; };
+		9B694F2D23B48F2C005E3F4B /* ReminderRingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderRingView.swift; sourceTree = "<group>"; };
+		9B694F2F23B48F3E005E3F4B /* ReminderNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderNoteView.swift; sourceTree = "<group>"; };
+		9B694F3123B49F28005E3F4B /* SetTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTopView.swift; sourceTree = "<group>"; };
+		9B694F3323B49F30005E3F4B /* SetBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetBottomView.swift; sourceTree = "<group>"; };
+		9B694F3523B4A49A005E3F4B /* SetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCell.swift; sourceTree = "<group>"; };
+		9B694F3723B5C04B005E3F4B /* RecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewModel.swift; sourceTree = "<group>"; };
+		9B694F3C23B5C24D005E3F4B /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		9B694F4223B5C9DD005E3F4B /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		9B694F4423B5CC6F005E3F4B /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
+		9BECAB1023B60743008D89FA /* RecordSnpItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordSnpItem.swift; sourceTree = "<group>"; };
 		C48A113DB7AF3B82CDA90D5E /* Pods_heshuibao.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_heshuibao.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -104,6 +144,9 @@
 			children = (
 				709F919A23AC838E00712919 /* AppDelegate.swift */,
 				9B42AEC723AC89500080D261 /* RootViewController.swift */,
+				9B694F4423B5CC6F005E3F4B /* AppViewModel.swift */,
+				9B694F3B23B5C24D005E3F4B /* Model.xcdatamodeld */,
+				9B694F4223B5C9DD005E3F4B /* CoreDataManager.swift */,
 				9B42AEDB23ACBCB90080D261 /* Begin */,
 				9B42AEC923AC89C00080D261 /* Today */,
 				9B42AECA23AC89CA0080D261 /* Record */,
@@ -125,6 +168,8 @@
 				9B42AED723AC8D9A0080D261 /* TodayTopView.swift */,
 				9B42AED923ACBB4C0080D261 /* TodayDrinkView.swift */,
 				9B42AEEF23AFB08E0080D261 /* TodayBottomView.swift */,
+				9B42AEF123B05EA90080D261 /* TodayAddItem.swift */,
+				9B42AEF323B062160080D261 /* TodayViewModel.swift */,
 			);
 			path = Today;
 			sourceTree = "<group>";
@@ -133,6 +178,15 @@
 			isa = PBXGroup;
 			children = (
 				9B42AECF23AC8A3E0080D261 /* RecordViewController.swift */,
+				9B694F1D23B34FEE005E3F4B /* RecordTopView.swift */,
+				9B694F1F23B35755005E3F4B /* RecordTodayView.swift */,
+				9B694F2123B35B24005E3F4B /* RecordTodayCell.swift */,
+				9B694F2323B3A127005E3F4B /* RecordWeekView.swift */,
+				9B694F2523B3A78E005E3F4B /* ReocrdWeekCell.swift */,
+				9B694F2723B4840D005E3F4B /* RecordAllView.swift */,
+				9B694F2923B485EA005E3F4B /* ReocrdAllCell.swift */,
+				9B694F3723B5C04B005E3F4B /* RecordViewModel.swift */,
+				9BECAB1023B60743008D89FA /* RecordSnpItem.swift */,
 			);
 			path = Record;
 			sourceTree = "<group>";
@@ -141,6 +195,9 @@
 			isa = PBXGroup;
 			children = (
 				9B42AED123AC8A450080D261 /* ReminderViewController.swift */,
+				9B694F2B23B48F24005E3F4B /* ReminderTimeView.swift */,
+				9B694F2D23B48F2C005E3F4B /* ReminderRingView.swift */,
+				9B694F2F23B48F3E005E3F4B /* ReminderNoteView.swift */,
 			);
 			path = Reminder;
 			sourceTree = "<group>";
@@ -149,6 +206,9 @@
 			isa = PBXGroup;
 			children = (
 				9B42AED323AC8A490080D261 /* SetViewController.swift */,
+				9B694F3123B49F28005E3F4B /* SetTopView.swift */,
+				9B694F3323B49F30005E3F4B /* SetBottomView.swift */,
+				9B694F3523B4A49A005E3F4B /* SetCell.swift */,
 			);
 			path = Set;
 			sourceTree = "<group>";
@@ -298,24 +358,44 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B694F2223B35B24005E3F4B /* RecordTodayCell.swift in Sources */,
 				9B42AEC823AC89500080D261 /* RootViewController.swift in Sources */,
+				9B694F4523B5CC6F005E3F4B /* AppViewModel.swift in Sources */,
 				9B42AEDF23ACBD000080D261 /* BeginIndicatorView.swift in Sources */,
+				9B42AEF223B05EA90080D261 /* TodayAddItem.swift in Sources */,
 				9B42AED423AC8A490080D261 /* SetViewController.swift in Sources */,
+				9B694F3223B49F28005E3F4B /* SetTopView.swift in Sources */,
 				9B42AEE123ACC3900080D261 /* BeginMainView.swift in Sources */,
 				9B42AEF023AFB08E0080D261 /* TodayBottomView.swift in Sources */,
+				9B694F3823B5C04B005E3F4B /* RecordViewModel.swift in Sources */,
 				9B42AEEE23AF766A0080D261 /* BeginFourthView.swift in Sources */,
 				709F919B23AC838E00712919 /* AppDelegate.swift in Sources */,
+				9B694F2C23B48F24005E3F4B /* ReminderTimeView.swift in Sources */,
+				9B42AEF423B062160080D261 /* TodayViewModel.swift in Sources */,
+				9B694F2423B3A127005E3F4B /* RecordWeekView.swift in Sources */,
 				9B42AED223AC8A450080D261 /* ReminderViewController.swift in Sources */,
+				9B694F3423B49F30005E3F4B /* SetBottomView.swift in Sources */,
 				9B42AED823AC8D9A0080D261 /* TodayTopView.swift in Sources */,
 				9B42AEE723AF6F8B0080D261 /* BeginSecondView.swift in Sources */,
+				9B694F2A23B485EA005E3F4B /* ReocrdAllCell.swift in Sources */,
+				9B694F3D23B5C24D005E3F4B /* Model.xcdatamodeld in Sources */,
+				9B694F3023B48F3E005E3F4B /* ReminderNoteView.swift in Sources */,
 				9B42AECE23AC89E90080D261 /* TodayViewController.swift in Sources */,
+				9B694F4323B5C9DD005E3F4B /* CoreDataManager.swift in Sources */,
+				9B694F2823B4840D005E3F4B /* RecordAllView.swift in Sources */,
+				9B694F2E23B48F2C005E3F4B /* ReminderRingView.swift in Sources */,
 				9B42AEEC23AF71730080D261 /* ComentTextCell.swift in Sources */,
+				9B694F2623B3A78E005E3F4B /* ReocrdWeekCell.swift in Sources */,
 				9B42AEDD23ACBCC70080D261 /* BeginViewController.swift in Sources */,
 				9B42AEE923AF70C20080D261 /* BeginThirdView.swift in Sources */,
 				9B42AEE523AF6C1A0080D261 /* BeginFirstView.swift in Sources */,
+				9BECAB1123B60743008D89FA /* RecordSnpItem.swift in Sources */,
+				9B694F2023B35755005E3F4B /* RecordTodayView.swift in Sources */,
+				9B694F1E23B34FEE005E3F4B /* RecordTopView.swift in Sources */,
 				9B42AED023AC8A3E0080D261 /* RecordViewController.swift in Sources */,
 				9B42AEE323AF6AB70080D261 /* BeginZeroView.swift in Sources */,
 				9B42AED623AC8C590080D261 /* Extention.swift in Sources */,
+				9B694F3623B4A49A005E3F4B /* SetCell.swift in Sources */,
 				9B42AEDA23ACBB4C0080D261 /* TodayDrinkView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -508,6 +588,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9B694F3B23B5C24D005E3F4B /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9B694F3C23B5C24D005E3F4B /* Model.xcdatamodel */,
+			);
+			currentVersion = 9B694F3C23B5C24D005E3F4B /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 709F918F23AC838E00712919 /* Project object */;
 }

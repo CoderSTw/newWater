@@ -51,6 +51,7 @@ extension RootViewController {
             nav.navigationItem.largeTitleDisplayMode = .always
         } else {
         }
+        nav.navigationBar.isHidden = true
         vc.tabBarItem.title = title
         vc.tabBarItem.image = UIImage(named: imgName)
         vc.tabBarItem.selectedImage = UIImage(named: imgName + "Sel")

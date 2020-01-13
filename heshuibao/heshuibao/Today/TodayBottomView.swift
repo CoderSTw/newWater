@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import KDCircularProgress
 
 class TodayBottomView: UIView {
 
@@ -20,13 +21,47 @@ class TodayBottomView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private var progress: KDCircularProgress!
+    private var proLabel: UILabel!
+    private var targetLabel: UILabel!
+    private var finishiLabel: UILabel!
+    
     private func setup() {
         // 1. 左边进度条
+        progress = KDCircularProgress()
+        progress.startAngle = -90
         
-        // 2. 右边的文字
-        let targetLabel = setupRightText(centerYOffX: -20.imgSize(), imgName: "targetDot", leftName: "今日目标：", rightName: "2.00 L")
+        progress.progressThickness = 0.2
+        progress.trackThickness = 0.2
+        progress.clockwise = true
+        progress.glowMode = .noGlow
         
-        let finishiLabel = setupRightText(centerYOffX: 20.imgSize(), imgName: "finishiDot", leftName: "今日完成：", rightName: "0.50 L")
+        progress.set(colors: UIColor(r: 109, g: 170, b: 248))
+        progress.trackColor = UIColor(r: 237, g: 237, b: 237)
+        addSubview(progress)
+        progress.snp.makeConstraints { (make) in
+            make.left.equalTo(40.imgSize())
+            make.centerY.equalTo(self)
+            make.width.height.equalTo(100.imgSize())
+        }
+        
+        // 0- 360 0-100
+        progress.angle = Double(TodayViewModel.getProgress())*3.6
+        
+        // 2. 进度文字
+        proLabel = UILabel(title: "\(TodayViewModel.getProgress()) %", color: COLOR_MAINTEXTCOLOR, size: 18.imgSize(), weight: .bold)
+        progress.addSubview(proLabel)
+        proLabel.snp.makeConstraints { (make) in
+            make.centerY.equalTo(progress)
+            make.centerX.equalTo(progress.snp.centerX).offset(3.imgSize())
+        }
+        
+        // 3. 右边的文字
+        let targetStr = NSString(format: "%.2f L", CGFloat(TodayViewModel.getTargetCount()) / 1000.0) as String
+        targetLabel = setupRightText(centerYOffX: -20.imgSize(), imgName: "targetDot", leftName: "今日目标：", rightName: targetStr)
+        
+        let todayStr = NSString(format: "%.2f L", CGFloat(TodayViewModel.getTodayCount()) / 1000.0) as String
+        finishiLabel = setupRightText(centerYOffX: 20.imgSize(), imgName: "finishiDot", leftName: "今日完成：", rightName: todayStr)
     }
     
     private func setupRightText(centerYOffX: CGFloat, imgName: String, leftName: String, rightName: String) -> UILabel {
@@ -54,6 +89,12 @@ class TodayBottomView: UIView {
         }
         
         return rightLabel
+    }
+    
+    func updateData() {
+        finishiLabel.text = NSString(format: "%.2f L", CGFloat(TodayViewModel.getTodayCount()) / 1000.0) as String
+        proLabel.text = "\(TodayViewModel.getProgress()) %"
+        progress.animate(toAngle: Double(TodayViewModel.getProgress())*3.6, duration: 1, completion: nil)
     }
 
 }

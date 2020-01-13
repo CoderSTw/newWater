@@ -56,6 +56,7 @@ class BeginFourthView: UIView {
         // 170 60 == 2000
         //
         let mlValue = (170 - height) * -5 + (60 - weight) * -10 + 2000
+        TodayViewModel.setTargetCount(value: mlValue)
         
         //
         let mlLabel = UILabel(title: "\(mlValue) ML", color: UIColor(r: 85, g: 151, b: 248), size: 35.imgSize(), weight: .medium)

@@ -19,6 +19,7 @@ let ipadWidth: CGFloat = (UIScreen.main.bounds.size.width > 414) ? 50/1024*SCREE
 
 let COLOR_MAINTEXTCOLOR = UIColor(named: "MainTextColor")!
 let COLOR_DETAILTEXTCOLOR = UIColor(named: "DetailTextColor")!
+let COLORT_MAIN_BLUE = UIColor(r: 106, g: 167, b: 248)
 
 // USER KEYS
 let GENDER_NUM_KEY = "GENDER_NUM_KEY"
@@ -26,7 +27,8 @@ let HEIGHT_ROW_KEY = "HEIGHT_ROW_KEY"
 let WEIGHT_ROW_KEY = "WEIGHT_ROW_KEY"
 let SPORT_HABBIT_KEY = "SPORT_HABBIT_KEY"
 let FIRST_TIME_KEY = "FIRST_TIME_KEY"
-
+let REMINDER_STATUS_KEY = "REMINDER_STATUS_KEY"
+let DAEK_MODE_KEY = "DAEK_MODE_KEY"
 
 extension UIColor {
     convenience init(r: CGFloat, g: CGFloat, b: CGFloat) {

@@ -16,6 +16,7 @@ class TodayTopView: UIView {
     
     //
     weak var delegate: TodayTopViewDelegate?
+    private var mlLabel: UILabel!
 
     //
     override init(frame: CGRect) {
@@ -58,7 +59,7 @@ class TodayTopView: UIView {
         }
         
         //
-        let mlLabel = UILabel(title: "500 ML", color: .white, size: 30.imgSize(), weight: .medium)
+        mlLabel = UILabel(title: "\(TodayViewModel.getTodayCount()) ML", color: .white, size: 30.imgSize(), weight: .medium)
         bgImgView.addSubview(mlLabel)
         mlLabel.snp.makeConstraints { (make) in
             make.centerX.equalTo(self)
@@ -102,5 +103,9 @@ extension TodayTopView {
     
     @objc func drinkBtnClick() {
         delegate?.TodayTopViewDidClickDrinkBtn()
+    }
+    
+    func updateData() {
+        mlLabel.text = "\(TodayViewModel.getTodayCount()) ML"
     }
 }

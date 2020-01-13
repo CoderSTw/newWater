@@ -19,9 +19,14 @@ class TodayViewController: UIViewController {
         setup()
     }
     
+    //
+    private var todayTopView: TodayTopView!
+    private var bottomView: TodayBottomView!
+    
+    //
     private func setup() {
         // 1. top
-        let todayTopView = TodayTopView()
+        todayTopView = TodayTopView()
         todayTopView.delegate = self
         view.addSubview(todayTopView)
         todayTopView.snp.makeConstraints { (make) in
@@ -31,7 +36,7 @@ class TodayViewController: UIViewController {
 
         
         // 2. bottom
-        let bottomView = TodayBottomView()
+        bottomView = TodayBottomView()
         view.addSubview(bottomView)
         bottomView.snp.makeConstraints { (make) in
             make.left.right.equalTo(view)
@@ -42,8 +47,18 @@ class TodayViewController: UIViewController {
     
 }
 
-extension TodayViewController: TodayTopViewDelegate {
+extension TodayViewController: TodayTopViewDelegate, TodayDrinkViewDelegate {
+    func TodayDrinkViewDidClickDrinkBtn() {
+        // 点击了喝水 更新数据哦
+        todayTopView?.updateData()
+        bottomView?.updateData()
+        
+    }
+    
     func TodayTopViewDidClickDrinkBtn() {
         // 弹出底部的窗口哦
+        let drinkView = TodayDrinkView()
+        drinkView.delegate = self
+        UIApplication.shared.keyWindow?.rootViewController?.view.addSubview(drinkView)
     }
 }

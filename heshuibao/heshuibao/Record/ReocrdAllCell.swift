@@ -2,7 +2,7 @@
 //  ReocrdAllCell.swift
 //  heshuibao
 //
-//  Created by 王磊 on 2019/12/26.
+//  Created by 舒蕾 on 2019/12/26.
 //  Copyright © 2019 erlingerling. All rights reserved.
 //
 
@@ -14,7 +14,7 @@ class ReocrdAllCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         selectionStyle = .none
-        
+        backgroundColor = COLOR_BGCOLOR
         setup()
     }
     
@@ -52,10 +52,10 @@ class ReocrdAllCell: UITableViewCell {
         line.alpha = 0.2
         addSubview(line)
         line.snp.makeConstraints { (make) in
-            make.left.equalTo(30.imgSize())
-            make.right.equalTo(-30.imgSize())
+            make.left.equalTo(30.IMGPX())
+            make.right.equalTo(-30.IMGPX())
             make.bottom.equalTo(self)
-            make.height.equalTo(1.imgSize())
+            make.height.equalTo(1.IMGPX())
         }
         
         //
@@ -63,32 +63,32 @@ class ReocrdAllCell: UITableViewCell {
         imgView.contentMode = .scaleAspectFit
         addSubview(imgView)
         imgView.snp.makeConstraints { (make) in
-            make.centerX.equalTo(self.snp_left).offset(45.imgSize())
-            make.centerY.equalTo(self).offset(8.imgSize())
-            make.width.height.equalTo(20.imgSize())
+            make.centerX.equalTo(self.snp_left).offset(45.IMGPX())
+            make.centerY.equalTo(self).offset(8.IMGPX())
+            make.width.height.equalTo(20.IMGPX())
         }
         
         //
-        waterLabel = UILabel(title: "所有饮品", color: COLOR_MAINTEXTCOLOR, size: 18.imgSize())
+        waterLabel = UILabel(title: "所有饮品", color: COLOR_MAINTEXTCOLOR, size: 18.IMGPX())
         addSubview(waterLabel)
         waterLabel.snp.makeConstraints { (make) in
-            make.left.equalTo(80.imgSize())
-            make.top.equalTo(20.imgSize())
+            make.left.equalTo(80.IMGPX())
+            make.top.equalTo(20.IMGPX())
         }
         
         //
-        progressLabel = UILabel(title: "完成进度： 100%", color: COLOR_DETAILTEXTCOLOR, size: 13.imgSize())
+        progressLabel = UILabel(title: "完成进度： 100%", color: COLOR_DETAILTEXTCOLOR, size: 13.IMGPX())
         addSubview(progressLabel)
         progressLabel.snp.makeConstraints { (make) in
             make.left.equalTo(waterLabel)
-            make.top.equalTo(waterLabel.snp_bottom).offset(5.imgSize())
+            make.top.equalTo(waterLabel.snp_bottom).offset(5.IMGPX())
         }
         
         //
-        mlLabel = UILabel(title: "150 ML", color: COLOR_MAINTEXTCOLOR, size: 18.imgSize())
+        mlLabel = UILabel(title: "150 ML", color: COLOR_MAINTEXTCOLOR, size: 18.IMGPX())
         addSubview(mlLabel)
         mlLabel.snp.makeConstraints { (make) in
-            make.right.equalTo(-30.imgSize())
+            make.right.equalTo(-30.IMGPX())
             make.centerY.equalTo(waterLabel)
         }
         
@@ -99,8 +99,8 @@ class ReocrdAllCell: UITableViewCell {
         finishiView.snp.makeConstraints { (make) in
             make.centerY.equalTo(progressLabel)
             make.right.equalTo(mlLabel)
-            make.width.equalTo(40.imgSize())
-            make.height.equalTo(16.imgSize())
+            make.width.equalTo(40.IMGPX())
+            make.height.equalTo(16.IMGPX())
         }
     }
 

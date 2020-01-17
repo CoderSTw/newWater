@@ -2,7 +2,7 @@
 //  RecordTopView.swift
 //  heshuibao
 //
-//  Created by 王磊 on 2019/12/25.
+//  Created by 舒蕾 on 2019/12/25.
 //  Copyright © 2019 erlingerling. All rights reserved.
 //
 
@@ -13,13 +13,9 @@ protocol RecordTopViewDelegate: NSObject {
 }
 
 class RecordTopView: UIView {
-
-//    override init(frame: CGRect) {
-//        super.init(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: 130.imgSize()))
-//    }
     
     init(titles: Array<String>) {
-        super.init(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: 130.imgSize()))
+        super.init(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: 79.IMGPX() + NEW_AREA*1.5))
         
         setup(titles: titles)
     }
@@ -45,27 +41,27 @@ class RecordTopView: UIView {
             btn.snp.makeConstraints { (make) in
                 make.left.equalTo(CGFloat(i) * SCREEN_WIDTH/3)
                 make.bottom.equalTo(self)
-                make.height.equalTo(50.imgSize())
+                make.height.equalTo(50.IMGPX())
                 make.width.equalTo(SCREEN_WIDTH/3)
             }
             
-            let label = UILabel(title: titles[i], color: .white, size: 18.imgSize())
+            let label = UILabel(title: titles[i], color: .white, size: 18.IMGPX())
             btn.addSubview(label)
             label.snp.makeConstraints { (make) in
                 make.centerX.equalTo(btn)
-                make.bottom.equalTo(-20.imgSize())
+                make.bottom.equalTo(-20.IMGPX())
             }
             
             if (i==0) {
                 line = UIView()
                 line.backgroundColor = .white
-                line.cornerRadius(radius: 1.imgSize())
+                line.cornerRadius(radius: 1.IMGPX())
                 btn.addSubview(line)
                 line.snp.makeConstraints { (make) in
                     make.centerX.equalTo(btn)
-                    make.bottom.equalTo(-5.imgSize())
-                    make.width.equalTo(24.imgSize())
-                    make.height.equalTo(2.imgSize())
+                    make.bottom.equalTo(-5.IMGPX())
+                    make.width.equalTo(24.IMGPX())
+                    make.height.equalTo(2.IMGPX())
                 }
             }
         }

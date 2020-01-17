@@ -2,7 +2,7 @@
 //  BeginZeroView.swift
 //  heshuibao
 //
-//  Created by 王磊 on 2019/12/22.
+//  Created by 舒蕾 on 2019/12/22.
 //  Copyright © 2019 erlingerling. All rights reserved.
 //
 
@@ -29,24 +29,30 @@ class BeginZeroView: UIView {
     private func setup() {
         manBtn = GenderButton(imgName: "boy", titleName: "男生")
         manBtn.addTarget(self, action: #selector(manBtnClick), for: .touchUpInside)
-        manBtn.isSelected = true
         addSubview(manBtn)
         manBtn.snp.makeConstraints { (make) in
-            make.top.equalTo(100.imgSize())
-            make.left.equalTo(30.imgSize())
-            make.width.equalTo(144.imgSize())
+            make.top.equalTo(100.IMGPX())
+            make.left.equalTo(30.IMGPX())
+            make.width.equalTo(144.IMGPX())
             make.bottom.equalTo(self)
         }
         
         womenBtn = GenderButton(imgName: "girl", titleName: "女生")
         womenBtn.addTarget(self, action: #selector(womenBtnClick), for: .touchUpInside)
-        womenBtn.isSelected = false
         addSubview(womenBtn)
         womenBtn.snp.makeConstraints { (make) in
-            make.top.equalTo(100.imgSize())
-            make.right.equalTo(-30.imgSize())
-            make.width.equalTo(144.imgSize())
+            make.top.equalTo(100.IMGPX())
+            make.right.equalTo(-30.IMGPX())
+            make.width.equalTo(144.IMGPX())
             make.bottom.equalTo(self)
+        }
+        
+        if UserDefaults.standard.integer(forKey: GENDER_NUM_KEY)==0 {
+            manBtn.isSelected = true
+            womenBtn.isSelected = false
+        }else {
+            manBtn.isSelected = false
+            womenBtn.isSelected = true
         }
     }
     
@@ -86,17 +92,18 @@ class GenderButton: UIButton {
         super.init(frame: CGRect.zero)
         
         img = UIImageView(image: UIImage(named: imgName))
+        img.contentMode = .scaleAspectFit
         addSubview(img)
         img.snp.makeConstraints { (make) in
             make.left.top.right.equalTo(self)
-            make.height.equalTo(148.imgSize())
+            make.height.equalTo(148.IMGPX())
         }
         
-        label = UILabel(title: titleName, color: COLOR_DETAILTEXTCOLOR, size: 18.imgSize())
+        label = UILabel(title: titleName, color: COLOR_DETAILTEXTCOLOR, size: 18.IMGPX())
         addSubview(label)
         label.snp.makeConstraints { (make) in
             make.centerX.equalTo(self)
-            make.top.equalTo(img.snp_bottom).offset(35.imgSize())
+            make.top.equalTo(img.snp_bottom).offset(35.IMGPX())
         }
     }
     

@@ -2,7 +2,7 @@
 //  BeginThirdView.swift
 //  heshuibao
 //
-//  Created by 王磊 on 2019/12/22.
+//  Created by 舒蕾 on 2019/12/22.
 //  Copyright © 2019 erlingerling. All rights reserved.
 //
 
@@ -17,6 +17,9 @@ class BeginThirdView: UIView, UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: THIRD_CELL_KEY) as! ComentTextCell
         
         cell.titleName = titleNames[indexPath.row]
+        if indexPath.row == oldRow {
+            cell.isChecked = true
+        }
         
         return cell
     }
@@ -24,10 +27,10 @@ class BeginThirdView: UIView, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let oldCell = tableView.cellForRow(at: IndexPath(row: oldRow, section: 0)) as! ComentTextCell
-        oldCell.isSelected = false
+        oldCell.isChecked = false
         
         let cell = tableView.cellForRow(at: indexPath) as! ComentTextCell
-        cell.isSelected = true
+        cell.isChecked = true
         
         oldRow = indexPath.row
         
@@ -56,14 +59,14 @@ class BeginThirdView: UIView, UITableViewDelegate, UITableViewDataSource {
         tableView.dataSource = self
         tableView.register(ComentTextCell.self, forCellReuseIdentifier: THIRD_CELL_KEY)
         tableView.separatorStyle = .none
-        tableView.rowHeight = 65.imgSize()
+        tableView.rowHeight = 65.IMGPX()
         tableView.isScrollEnabled = false
         tableView.selectRow(at: IndexPath(row: oldRow, section: 0), animated: false, scrollPosition: .none)
         addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
-            make.left.equalTo(30.imgSize())
-            make.right.equalTo(-30.imgSize())
-            make.top.equalTo(40.imgSize())
+            make.left.equalTo(30.IMGPX())
+            make.right.equalTo(-30.IMGPX())
+            make.top.equalTo(40.IMGPX())
             make.bottom.equalTo(self)
         }
     }

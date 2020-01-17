@@ -2,7 +2,7 @@
 //  RecordViewController.swift
 //  heshuibao
 //
-//  Created by 王磊 on 2019/12/20.
+//  Created by 舒蕾 on 2019/12/20.
 //  Copyright © 2019 erlingerling. All rights reserved.
 //
 
@@ -12,7 +12,7 @@ class RecordViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = COLOR_BGCOLOR
         setup()
     }
     
@@ -22,6 +22,7 @@ class RecordViewController: UIViewController {
         //
         todayView.reloadData()
         weekView.reloadData()
+        allView.reloadData()
     }
     
     //
@@ -29,10 +30,10 @@ class RecordViewController: UIViewController {
     private var topview: RecordTopView!
     private var todayView: RecordTodayView!
     private var weekView: RecordWeekView!
+    private var allView: RecordAllView!
     
     //
     private func setup() {
-        
         // topview
         topview = RecordTopView(titles: ["今日", "本周", "全部"])
         topview.delegate = self
@@ -49,7 +50,7 @@ class RecordViewController: UIViewController {
             make.left.equalTo(view)
             make.top.equalTo(topview.snp_bottom)
             make.width.equalTo(SCREEN_WIDTH)
-            make.bottom.equalTo(view)
+            make.bottom.equalTo(view).offset(-40-NEW_AREA-60)
         }
         
         // today
@@ -70,13 +71,15 @@ class RecordViewController: UIViewController {
         }
         
         // all
-        let allView = RecordAllView()
+        allView = RecordAllView()
         scrollView.addSubview(allView)
         allView.snp.makeConstraints { (make) in
             make.left.equalTo(scrollView).offset(SCREEN_WIDTH*2)
             make.top.height.equalTo(scrollView)
             make.width.equalTo(SCREEN_WIDTH)
         }
+        
+        BannerManager().loadBanner(vc: self)
     }
 
 }

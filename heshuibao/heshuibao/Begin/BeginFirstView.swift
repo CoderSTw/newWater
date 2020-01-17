@@ -2,7 +2,7 @@
 //  BeginFirstView.swift
 //  heshuibao
 //
-//  Created by 王磊 on 2019/12/22.
+//  Created by 舒蕾 on 2019/12/22.
 //  Copyright © 2019 erlingerling. All rights reserved.
 //
 
@@ -22,7 +22,7 @@ class BeginFirstView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
-        return 40.imgSize()
+        return 40.IMGPX()
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
@@ -50,20 +50,24 @@ class BeginFirstView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
         let pickerView = UIPickerView()
         pickerView.delegate = self
         pickerView.dataSource = self
+        if UserDefaults.standard.integer(forKey: HEIGHT_ROW_KEY)==0 {
+        }else {
+            heightRow = UserDefaults.standard.integer(forKey: HEIGHT_ROW_KEY)
+        }
         pickerView.selectRow(heightRow, inComponent: 0, animated: true)
         addSubview(pickerView)
         pickerView.snp.makeConstraints { (make) in
-            make.top.equalTo(40.imgSize())
+            make.top.equalTo(40.IMGPX())
             make.width.equalTo(self)
-            make.bottom.equalTo(-40.imgSize())
+            make.bottom.equalTo(-40.IMGPX())
             make.centerX.equalTo(self)
         }
         
-        let label = UILabel(title: " CM", color: .black, size: 18.imgSize())
+        let label = UILabel(title: " CM", color: .black, size: 18.IMGPX())
         addSubview(label)
         label.snp.makeConstraints { (make) in
             make.centerY.equalTo(pickerView)
-            make.right.equalTo(-100.imgSize())
+            make.right.equalTo(-100.IMGPX())
         }
         
         UserDefaults.standard.set(heightRow, forKey: HEIGHT_ROW_KEY)

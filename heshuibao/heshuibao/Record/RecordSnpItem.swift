@@ -2,7 +2,7 @@
 //  RecordSnpItem.swift
 //  heshuibao
 //
-//  Created by 王磊 on 2019/12/27.
+//  Created by 舒蕾 on 2019/12/27.
 //  Copyright © 2019 erlingerling. All rights reserved.
 //
 

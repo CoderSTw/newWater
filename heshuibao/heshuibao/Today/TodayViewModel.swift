@@ -2,7 +2,7 @@
 //  TodayViewModel.swift
 //  heshuibao
 //
-//  Created by 王磊 on 2019/12/23.
+//  Created by 舒蕾 on 2019/12/23.
 //  Copyright © 2019 erlingerling. All rights reserved.
 //
 
@@ -21,12 +21,33 @@ class TodayViewModel: NSObject {
     
     
     static func getTargetCount() -> Int {
-        return UserDefaults.standard.integer(forKey: "TARGET_COUNT_VALUE")
+        if (UserDefaults.standard.bool(forKey: IS_AUTO_KEY)==false) {
+            return getTuijianTargetCount()
+        }else {
+            return getAutoTargetCount()
+        }
+//        return UserDefaults.standard.integer(forKey: "TARGET_COUNT_VALUE")
     }
     
-    static func setTargetCount(value: Int) {
-        UserDefaults.standard.set(value, forKey: "TARGET_COUNT_VALUE")
+    static func getTuijianTargetCount() -> Int {
+        return UserDefaults.standard.integer(forKey: "TUIJIAN_TARGET_COUNT_VALUE")
     }
+    
+    static func getAutoTargetCount() -> Int {
+        return UserDefaults.standard.integer(forKey: "AUTO_TARGET_COUNT_VALUE")
+    }
+    
+    static func setTuijianTargetCount(value: Int) {
+        UserDefaults.standard.set(value, forKey: "TUIJIAN_TARGET_COUNT_VALUE")
+    }
+    
+    static func setAutoTargetCount(value: Int) {
+        UserDefaults.standard.set(value, forKey: "AUTO_TARGET_COUNT_VALUE")
+    }
+    
+//    static func setTargetCount(value: Int) {
+//        UserDefaults.standard.set(value, forKey: "TARGET_COUNT_VALUE")
+//    }
     
     static func getProgress() -> Int {
         let today = getTodayCount()

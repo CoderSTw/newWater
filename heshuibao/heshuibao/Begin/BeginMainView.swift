@@ -2,7 +2,7 @@
 //  BeginMainView.swift
 //  heshuibao
 //
-//  Created by 王磊 on 2019/12/20.
+//  Created by 舒蕾 on 2019/12/20.
 //  Copyright © 2019 erlingerling. All rights reserved.
 //
 
@@ -30,22 +30,22 @@ class BeginMainView: UIView {
     
     private func setup() {
         //
-        titleLabel = UILabel(title: titleNames[0], color: COLOR_MAINTEXTCOLOR, size: 30.imgSize(), weight: .medium)
+        titleLabel = UILabel(title: titleNames[0], color: COLOR_MAINTEXTCOLOR, size: 30.IMGPX(), weight: .medium)
         addSubview(titleLabel)
         titleLabel.snp.makeConstraints { (make) in
-            make.left.equalTo(30.imgSize())
+            make.left.equalTo(30.IMGPX())
             make.top.equalTo(self)
         }
         
         //
-        detailLabel = UILabel(title: "请正确填写您的信息以便与软件推算出您每日推荐的饮水量。", color: COLOR_DETAILTEXTCOLOR, size: 18.imgSize())
+        detailLabel = UILabel(title: "请正确填写您的信息以便与软件推算出您每日推荐的饮水量。", color: COLOR_DETAILTEXTCOLOR, size: 18.IMGPX())
         detailLabel.numberOfLines = 0
-        detailLabel.changeLineSpace(space: 10.imgSize())
+        detailLabel.changeLineSpace(space: 10.IMGPX())
         addSubview(detailLabel)
         detailLabel.snp.makeConstraints { (make) in
             make.left.equalTo(titleLabel)
-            make.top.equalTo(titleLabel.snp_bottom).offset(15.imgSize())
-            make.right.equalTo(-30.imgSize())
+            make.top.equalTo(titleLabel.snp_bottom).offset(15.IMGPX())
+            make.right.equalTo(-30.IMGPX())
         }
         
         //
@@ -57,8 +57,8 @@ class BeginMainView: UIView {
         addSubview(scrollView)
         scrollView.snp.makeConstraints { (make) in
             make.left.width.equalTo(self)
-            make.top.equalTo(detailLabel.snp_bottom).offset(50.imgSize())
-            make.height.equalTo(400.imgSize())
+            make.top.equalTo(detailLabel.snp_bottom).offset(50.IMGPX())
+            make.height.equalTo(400.IMGPX())
         }
         
         //
@@ -111,10 +111,10 @@ class BeginMainView: UIView {
         let drinkImg = UIImageView(image: UIImage(named: "iconImg"))
         scrollView.addSubview(drinkImg)
         drinkImg.snp.makeConstraints { (make) in
-            make.left.equalTo(scrollView).offset(SCREEN_WIDTH*5 + 118.imgSize())
+            make.left.equalTo(scrollView).offset(SCREEN_WIDTH*5 + 118.IMGPX())
             make.top.equalTo(scrollView)
-            make.width.equalTo(188.imgSize())
-            make.height.equalTo(253.imgSize())
+            make.width.equalTo(188.IMGPX())
+            make.height.equalTo(253.IMGPX())
             
         }
     }

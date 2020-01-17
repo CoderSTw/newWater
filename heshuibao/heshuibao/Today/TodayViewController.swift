@@ -2,11 +2,12 @@
 //  TodayViewController.swift
 //  heshuibao
 //
-//  Created by 王磊 on 2019/12/20.
+//  Created by 舒蕾 on 2019/12/20.
 //  Copyright © 2019 erlingerling. All rights reserved.
 //
 
 import UIKit
+import StoreKit
 
 class TodayViewController: UIViewController {
     
@@ -14,9 +15,11 @@ class TodayViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .white
+        view.backgroundColor = COLOR_BGCOLOR
         
         setup()
+        
+        BannerManager().loadBanner(vc: self)
     }
     
     //
@@ -31,16 +34,15 @@ class TodayViewController: UIViewController {
         view.addSubview(todayTopView)
         todayTopView.snp.makeConstraints { (make) in
             make.left.right.top.equalTo(view)
-            make.height.equalTo(650.imgSize())
+            make.height.equalTo(582.IMGPX() + NEW_AREA*2 - 50)
         }
-
         
         // 2. bottom
         bottomView = TodayBottomView()
         view.addSubview(bottomView)
         bottomView.snp.makeConstraints { (make) in
             make.left.right.equalTo(view)
-            make.bottom.equalTo(-50 - SafeAreaBottomHeight)
+            make.bottom.equalTo(-80 - NEW_AREA)
             make.top.equalTo(todayTopView.snp.bottom)
         }
     }
@@ -53,6 +55,17 @@ extension TodayViewController: TodayTopViewDelegate, TodayDrinkViewDelegate {
         todayTopView?.updateData()
         bottomView?.updateData()
         
+        FullMannager.shareManager().loadFull(vc: self) {
+        }
+    
+        var count = UserDefaults.standard.integer(forKey: "count")
+        count += 1
+        UserDefaults.standard.set(count, forKey: "count")
+        
+        if (UserDefaults.standard.integer(forKey: "count")==5 || UserDefaults.standard.integer(forKey: "count")==20) {
+            
+            SKStoreReviewController.requestReview()
+        }
     }
     
     func TodayTopViewDidClickDrinkBtn() {
@@ -60,5 +73,6 @@ extension TodayViewController: TodayTopViewDelegate, TodayDrinkViewDelegate {
         let drinkView = TodayDrinkView()
         drinkView.delegate = self
         UIApplication.shared.keyWindow?.rootViewController?.view.addSubview(drinkView)
+        drinkView.animate()
     }
 }

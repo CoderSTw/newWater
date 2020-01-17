@@ -1,6 +1,8 @@
+source 'https://cdn.cocoapods.org/'
 use_frameworks!
-
 target 'heshuibao' do
    pod 'SnapKit', '~> 4.0'
    pod 'KDCircularProgress'
+   pod 'PieCharts'
+   pod 'Google-Mobile-Ads-SDK'
 end

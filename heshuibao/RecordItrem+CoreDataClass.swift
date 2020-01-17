@@ -2,7 +2,7 @@
 //  RecordItrem+CoreDataClass.swift
 //  
 //
-//  Created by 王磊 on 2019/12/30.
+//  Created by 舒蕾 on 2019/12/30.
 //
 //
 

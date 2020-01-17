@@ -2,7 +2,7 @@
 //  TodayDrinkView.swift
 //  heshuibao
 //
-//  Created by 王磊 on 2019/12/20.
+//  Created by 舒蕾 on 2019/12/20.
 //  Copyright © 2019 erlingerling. All rights reserved.
 //
 
@@ -28,7 +28,7 @@ class TodayDrinkView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
             return drinkItemView
         }else {
             let view = UIView()
-            let label = UILabel(title: valueNums[row], color: COLOR_MAINTEXTCOLOR, size: 22.imgSize())
+            let label = UILabel(title: valueNums[row], color: COLOR_MAINTEXTCOLOR, size: 22.IMGPX())
             view.addSubview(label)
             label.snp.makeConstraints { (make) in
                 make.center.equalTo(view)
@@ -38,7 +38,7 @@ class TodayDrinkView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
-        return 45.imgSize()
+        return 45.IMGPX()
     }
     
 
@@ -60,11 +60,14 @@ class TodayDrinkView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private var bgView: UIView!
+    private var bottomView: UIView!
+    
     private func setup() {
         
         //
-        let bgView = UIView()
-        bgView.alpha = 0.2
+        bgView = UIView()
+        bgView.alpha = 0
         bgView.backgroundColor = .black
         bgView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tap)))
         addSubview(bgView)
@@ -73,23 +76,24 @@ class TodayDrinkView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
         }
         
         //
-        let bottomView = UIView()
-        bottomView.backgroundColor = .white
-        bottomView.cornerRadius(radius: 15.imgSize())
+        bottomView = UIView()
+        bottomView.backgroundColor = COLOR_BGCOLOR
+        bottomView.cornerRadius(radius: 15.IMGPX())
         addSubview(bottomView)
         bottomView.snp.makeConstraints { (make) in
             make.centerX.equalTo(self)
-            make.top.equalTo(275.imgSize())
-            make.bottom.equalTo(30.imgSize())
-            make.width.equalTo(375.imgSize())
+            make.top.equalTo(275.IMGPX())
+            make.bottom.equalTo(30.IMGPX())
+            make.width.equalTo(375.IMGPX())
         }
+        bottomView.transform = .init(translationX: 0, y: 800.IMGPX())
         
         //
-        let titleLabel = UILabel(title: "请选择本次饮品", color: COLOR_MAINTEXTCOLOR, size: 18.imgSize())
+        let titleLabel = UILabel(title: "请选择本次饮品", color: COLOR_MAINTEXTCOLOR, size: 18.IMGPX())
         bottomView.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { (make) in
-            make.left.equalTo(20.imgSize())
-            make.top.equalTo(30.imgSize())
+            make.left.equalTo(20.IMGPX())
+            make.top.equalTo(30.IMGPX())
         }
         
         //
@@ -101,8 +105,8 @@ class TodayDrinkView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
         bottomView.addSubview(pickerView)
         pickerView.snp.makeConstraints { (make) in
             make.left.right.equalTo(bottomView)
-            make.top.equalTo(titleLabel.snp_bottom).offset(50.imgSize())
-            make.height.equalTo(250.imgSize())
+            make.top.equalTo(titleLabel.snp_bottom).offset(50.IMGPX())
+            make.height.equalTo(250.IMGPX())
         }
         
         let view = UIView()
@@ -110,7 +114,7 @@ class TodayDrinkView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
         bottomView.insertSubview(view, belowSubview: pickerView)
         view.snp.makeConstraints { (make) in
             make.left.right.centerY.equalTo(pickerView)
-            make.height.equalTo(45.imgSize())
+            make.height.equalTo(45.IMGPX())
         }
         
         //
@@ -120,12 +124,12 @@ class TodayDrinkView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
         bottomView.addSubview(addBtn)
         addBtn.snp.makeConstraints { (make) in
             make.centerX.equalTo(self)
-            make.top.equalTo(pickerView.snp_bottom).offset(90.imgSize())
-            make.width.equalTo(300.imgSize())
-            make.height.equalTo(64.imgSize())
+            make.top.equalTo(pickerView.snp_bottom).offset(32.IMGPX() + NEW_AREA*2)
+            make.width.equalTo(300.IMGPX())
+            make.height.equalTo(64.IMGPX())
         }
         
-        let addLabel = UILabel(title: "添加", color: .white, size: 18.imgSize(), weight: .bold)
+        let addLabel = UILabel(title: "添加", color: .white, size: 18.IMGPX(), weight: .bold)
         addBtn.addSubview(addLabel)
         addLabel.snp.makeConstraints { (make) in
             make.center.equalTo(addBtn)
@@ -136,7 +140,11 @@ class TodayDrinkView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
 
 extension TodayDrinkView {
     @objc func tap() {
-        removeFromSuperview()
+        UIView.animate(withDuration: 0.3, animations: { [weak self] in
+            self?.alpha = 0
+        }) { (_) in
+            self.removeFromSuperview()
+        }
     }
     
     @objc func addBtnClick() {
@@ -150,15 +158,19 @@ extension TodayDrinkView {
         addItem.time = fmt.string(from: Date())
         TodayViewModel.addTodayCount(value: values[pickerView.selectedRow(inComponent: 1)])
         addItem.progress = TodayViewModel.getProgress()
-//        addItem.my_print()
         addItem.Add()
         
         // 退出
-        UIView.animate(withDuration: 0.3, animations: { [weak self] in
-            self?.alpha = 0
+        tap()
+        self.delegate?.TodayDrinkViewDidClickDrinkBtn()
+    }
+    
+    func animate() {
+        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseInOut, animations: {
+            self.bgView.alpha = 0.2
+            self.bottomView.transform = .identity
         }) { (_) in
-            self.delegate?.TodayDrinkViewDidClickDrinkBtn()
-            self.tap()
+            
         }
     }
 }
@@ -172,15 +184,15 @@ class DrinkItemView: UIView {
         addSubview(imgView)
         imgView.snp.makeConstraints { (make) in
             make.centerY.equalTo(self)
-            make.centerX.equalTo(self.snp_left).offset(58.imgSize())
-            make.width.height.equalTo(25.imgSize())
+            make.centerX.equalTo(self.snp_left).offset(58.IMGPX())
+            make.width.height.equalTo(25.IMGPX())
         }
         
-        let label = UILabel(title: titleName, color: COLOR_MAINTEXTCOLOR, size: 22.imgSize())
+        let label = UILabel(title: titleName, color: COLOR_MAINTEXTCOLOR, size: 22.IMGPX())
         addSubview(label)
         label.snp.makeConstraints { (make) in
             make.centerY.equalTo(self)
-            make.left.equalTo(90.imgSize())
+            make.left.equalTo(90.IMGPX())
         }
     }
     

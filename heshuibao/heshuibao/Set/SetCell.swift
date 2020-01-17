@@ -2,7 +2,7 @@
 //  SetCell.swift
 //  heshuibao
 //
-//  Created by 王磊 on 2019/12/26.
+//  Created by 舒蕾 on 2019/12/26.
 //  Copyright © 2019 erlingerling. All rights reserved.
 //
 
@@ -14,6 +14,7 @@ class SetCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         selectionStyle = .none
+        backgroundColor = COLOR_BGCOLOR
         setup()
     }
     
@@ -65,7 +66,7 @@ class SetCell: UITableViewCell {
         addSubview(line)
         line.snp.makeConstraints { (make) in
             make.left.right.bottom.equalTo(self)
-            make.height.equalTo(1.imgSize())
+            make.height.equalTo(1.IMGPX())
         }
         
         //
@@ -75,15 +76,15 @@ class SetCell: UITableViewCell {
         leftIcon.snp.makeConstraints { (make) in
             make.left.equalTo(self)
             make.centerY.equalTo(self)
-            make.width.height.equalTo(23.imgSize())
+            make.width.height.equalTo(23.IMGPX())
         }
         
         //
-        titleLabel = UILabel(title: "111", color: COLOR_MAINTEXTCOLOR, size: 18.imgSize())
+        titleLabel = UILabel(title: "111", color: COLOR_MAINTEXTCOLOR, size: 18.IMGPX())
         addSubview(titleLabel)
         titleLabel.snp.makeConstraints { (make) in
             make.centerY.equalTo(self)
-            make.left.equalTo(40.imgSize())
+            make.left.equalTo(50.IMGPX())
         }
         
         //
@@ -92,18 +93,18 @@ class SetCell: UITableViewCell {
         rightCheck.snp.makeConstraints { (make) in
             make.centerY.equalTo(self)
             make.right.equalTo(self)
-            make.width.equalTo(8.imgSize())
-            make.height.equalTo(11.imgSize())
+            make.width.equalTo(8.IMGPX())
+            make.height.equalTo(11.IMGPX())
         }
         
         //
-        detailLabel = UILabel(title: "", color: COLOR_DETAILTEXTCOLOR, size: 13.imgSize())
+        detailLabel = UILabel(title: "", color: COLOR_DETAILTEXTCOLOR, size: 13.IMGPX())
         detailLabel.alpha = 0.6
         detailLabel.textAlignment = .right
         addSubview(detailLabel)
         detailLabel.snp.makeConstraints { (make) in
             make.centerY.equalTo(self)
-            make.right.equalTo(-30.imgSize())
+            make.right.equalTo(-30.IMGPX())
         }
         
         //
@@ -114,20 +115,88 @@ class SetCell: UITableViewCell {
         myswitchBtn.isHidden = true
         addSubview(myswitchBtn)
         myswitchBtn.snp.makeConstraints { (make) in
-            make.right.equalTo(0.imgSize())
+            make.right.equalTo(0.IMGPX())
             make.centerY.equalTo(self)
-            make.width.equalTo(40.imgSize())
-            make.height.equalTo(25.imgSize())
+            make.width.equalTo(40.IMGPX())
+            make.height.equalTo(25.IMGPX())
         }
     }
     
     func didSelctedCellIndex(index: Int) {
         if (index==0) {
-            myswitchBtn.isSelected = !UserDefaults.standard.bool(forKey: REMINDER_STATUS_KEY)
-            UserDefaults.standard.set(myswitchBtn.isSelected, forKey: REMINDER_STATUS_KEY)
+            
+            if (myswitchBtn.isSelected==false) {
+                
+                ReminderManager.shareManager().checkReminderPower(NoQuanxianHandle: {
+                    DispatchQueue.main.async {
+                        WLHUD.shareHud().showWithError(name: "请去设置中开启权限！")
+                    }
+                    return
+                }) {
+                    DispatchQueue.main.async {
+                        self.myswitchBtn.isSelected = !UserDefaults.standard.bool(forKey: REMINDER_STATUS_KEY)
+                        UserDefaults.standard.set(self.myswitchBtn.isSelected, forKey: REMINDER_STATUS_KEY)
+                        
+                        if self.myswitchBtn.isSelected==true {
+                            ReminderManager.shareManager().addReminder()
+                            DispatchQueue.main.async {
+                                
+                                WLHUD.shareHud().showWithSuccess(name: "开启通知成功！", Dismiss: {
+                                    FullMannager.shareManager().loadFull(vc: UIApplication.shared.keyWindow?.rootViewController ?? UIViewController()) {}
+                                })
+                            }
+                        }else {
+                            ReminderManager.shareManager().clearAllReminder()
+                            DispatchQueue.main.async {
+                            
+                                WLHUD.shareHud().showWithSuccess(name: "关闭通知成功！", Dismiss: {
+                                    FullMannager.shareManager().loadFull(vc: UIApplication.shared.keyWindow?.rootViewController ?? UIViewController()) {}
+                                })
+                            }
+                        }
+                    }
+                }
+            }else {
+                self.myswitchBtn.isSelected = !UserDefaults.standard.bool(forKey: REMINDER_STATUS_KEY)
+               UserDefaults.standard.set(self.myswitchBtn.isSelected, forKey: REMINDER_STATUS_KEY)
+               
+               if self.myswitchBtn.isSelected==true {
+                   ReminderManager.shareManager().addReminder()
+                   DispatchQueue.main.async {
+                       
+                       WLHUD.shareHud().showWithSuccess(name: "开启通知成功！", Dismiss: {
+                        FullMannager.shareManager().loadFull(vc: UIApplication.shared.keyWindow?.rootViewController ?? UIViewController()) {}
+                       })
+                   }
+               }else {
+                   ReminderManager.shareManager().clearAllReminder()
+                   DispatchQueue.main.async {
+                   
+                       WLHUD.shareHud().showWithSuccess(name: "关闭通知成功！", Dismiss: {
+                        FullMannager.shareManager().loadFull(vc: UIApplication.shared.keyWindow?.rootViewController ?? UIViewController()) {}
+                       })
+                   }
+               }
+            }
+            
+            
         }else {
             myswitchBtn.isSelected = !UserDefaults.standard.bool(forKey: DAEK_MODE_KEY)
             UserDefaults.standard.set(myswitchBtn.isSelected, forKey: DAEK_MODE_KEY)
+            
+            let center = NotificationCenter.default
+            
+            if myswitchBtn.isSelected==true {
+                center.post(name: NSNotification.Name(rawValue: "dark_mode"), object: nil, userInfo: ["info" : true])
+                WLHUD.shareHud().showWithSuccess(name: "开启暗黑模式成功！", Dismiss: {
+                    FullMannager.shareManager().loadFull(vc: UIApplication.shared.keyWindow?.rootViewController ?? UIViewController()) {}
+                })
+            }else {
+                center.post(name: NSNotification.Name(rawValue: "dark_mode"), object: nil, userInfo: ["info" : false])
+                WLHUD.shareHud().showWithSuccess(name: "关闭暗黑模式成功！", Dismiss: {
+                    FullMannager.shareManager().loadFull(vc: UIApplication.shared.keyWindow?.rootViewController ?? UIViewController()) {}
+                })
+            }
         }
     }
 }

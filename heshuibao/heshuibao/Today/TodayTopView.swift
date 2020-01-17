@@ -2,7 +2,7 @@
 //  TodayTopView.swift
 //  heshuibao
 //
-//  Created by 王磊 on 2019/12/20.
+//  Created by 舒蕾 on 2019/12/20.
 //  Copyright © 2019 erlingerling. All rights reserved.
 //
 
@@ -39,11 +39,11 @@ class TodayTopView: UIView {
         }
         
         //
-        let todayLabel = UILabel(title: "今天", color: .white, size: 30.imgSize(), weight: .medium)
+        let todayLabel = UILabel(title: "今天", color: .white, size: 30.IMGPX(), weight: .medium)
         bgImgView.addSubview(todayLabel)
         todayLabel.snp.makeConstraints { (make) in
-            make.left.equalTo(30.imgSize())
-            make.top.equalTo(65.imgSize())
+            make.left.equalTo(30.IMGPX())
+            make.top.equalTo(31.IMGPX() + NEW_AREA)
         }
         
         //
@@ -51,19 +51,19 @@ class TodayTopView: UIView {
         dateFmt.dateFormat = "MM / dd"
         let dateStr = dateFmt.string(from: Date())
         
-        let dateLabel = UILabel(title: dateStr, color: UIColor(r: 209, g: 227, b: 252), size: 18.imgSize())
+        let dateLabel = UILabel(title: dateStr, color: UIColor(r: 209, g: 227, b: 252), size: 18.IMGPX())
         bgImgView.addSubview(dateLabel)
         dateLabel.snp.makeConstraints { (make) in
-            make.left.equalTo(todayLabel).offset(3.imgSize())
-            make.top.equalTo(todayLabel.snp.bottom).offset(10.imgSize())
+            make.left.equalTo(todayLabel).offset(3.IMGPX())
+            make.top.equalTo(todayLabel.snp.bottom).offset(10.IMGPX())
         }
         
         //
-        mlLabel = UILabel(title: "\(TodayViewModel.getTodayCount()) ML", color: .white, size: 30.imgSize(), weight: .medium)
+        mlLabel = UILabel(title: "\(TodayViewModel.getTodayCount()) ML", color: .white, size: 30.IMGPX(), weight: .medium)
         bgImgView.addSubview(mlLabel)
         mlLabel.snp.makeConstraints { (make) in
             make.centerX.equalTo(self)
-            make.top.equalTo(145.imgSize())
+            make.top.equalTo(77.IMGPX() + NEW_AREA)
         }
         
         //
@@ -71,9 +71,9 @@ class TodayTopView: UIView {
         bgImgView.addSubview(pingziImg)
         pingziImg.snp.makeConstraints { (make) in
             make.centerX.equalTo(self)
-            make.top.equalTo(mlLabel.snp.bottom).offset(25.imgSize())
-            make.width.equalTo(223.imgSize())
-            make.height.equalTo(313.imgSize())
+            make.top.equalTo(mlLabel.snp.bottom).offset(25.IMGPX())
+            make.width.equalTo(223.IMGPX())
+            make.height.equalTo(313.IMGPX())
         }
         
         //
@@ -83,16 +83,16 @@ class TodayTopView: UIView {
         bgImgView.addSubview(drinkBtn)
         drinkBtn.snp.makeConstraints { (make) in
             make.centerX.equalTo(self)
-            make.bottom.equalTo(-25.imgSize())
-            make.width.equalTo(264.imgSize())
-            make.height.equalTo(82.imgSize())
+            make.bottom.equalTo(-8.IMGPX() - NEW_AREA*0.5)
+            make.width.equalTo(264.IMGPX())
+            make.height.equalTo(82.IMGPX())
         }
         
-        let drinkLabel = UILabel(title: "喝水", color: UIColor(r: 52, g: 71, b: 95), size: 25.imgSize(), weight: .medium)
+        let drinkLabel = UILabel(title: "喝水", color: UIColor(r: 52, g: 71, b: 95), size: 25.IMGPX(), weight: .medium)
         drinkBtn.addSubview(drinkLabel)
         drinkLabel.snp.makeConstraints { (make) in
             make.centerX.equalTo(drinkBtn)
-            make.centerY.equalTo(drinkBtn).offset(-3.imgSize())
+            make.centerY.equalTo(drinkBtn).offset(-3.IMGPX())
         }
         
     }

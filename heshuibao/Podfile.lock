@@ -1,20 +1,24 @@
 PODS:
   - KDCircularProgress (1.5.4)
+  - PieCharts (0.0.7)
   - SnapKit (4.2.0)
 
 DEPENDENCIES:
   - KDCircularProgress
+  - PieCharts
   - SnapKit (~> 4.0)
 
 SPEC REPOS:
   trunk:
     - KDCircularProgress
+    - PieCharts
     - SnapKit
 
 SPEC CHECKSUMS:
   KDCircularProgress: 98200c6b8e85d22bc04eb644721d3b1e12b0686b
+  PieCharts: 30e50dfa7dc19e5b84e9878d32089673ef5d0453
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
 
-PODFILE CHECKSUM: 38b10e3fcc6896789c46c726919fbc3e2de1fffd
+PODFILE CHECKSUM: dd34c1ce5d092e58f4c6fed57fcdcd7cc3ec2dbf
 
 COCOAPODS: 1.8.4

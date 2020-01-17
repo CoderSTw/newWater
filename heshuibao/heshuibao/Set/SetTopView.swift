@@ -2,7 +2,7 @@
 //  SetTopView.swift
 //  heshuibao
 //
-//  Created by 王磊 on 2019/12/26.
+//  Created by 舒蕾 on 2019/12/26.
 //  Copyright © 2019 erlingerling. All rights reserved.
 //
 
@@ -20,6 +20,11 @@ class SetTopView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private var iconImg: UIImageView!
+    private var nameLabel: UILabel!
+    private var mlLabel: UILabel!
+    var topviewClickImg: (()->())?
+    
     private func setup() {
         //
         backgroundColor = COLORT_MAIN_BLUE
@@ -28,51 +33,74 @@ class SetTopView: UIView {
         let bgShadowView = UIImageView(image: UIImage(named: "setshadow"))
         addSubview(bgShadowView)
         bgShadowView.snp.makeConstraints { (make) in
-            make.left.equalTo(30.imgSize())
-            make.top.equalTo(100.imgSize())
-            make.width.equalTo(120.imgSize())
-            make.height.equalTo(119.imgSize())
+            make.left.equalTo(0.IMGPX())
+            make.top.equalTo(24.IMGPX() + NEW_AREA*1)
+            make.width.equalTo(160.IMGPX())
+            make.height.equalTo(160.IMGPX())
         }
         
         //
-        let iconImg = UIImageView(image: UIImage(named: "icon"))
-        iconImg.contentMode = .scaleAspectFit
-        iconImg.cornerRadius(radius: 18.imgSize())
+        iconImg = UIImageView(image: UIImage(named: "icon"))
+        let path = NSHomeDirectory()
+        let imagePath = path + "/Documents/icon.png"
+        let image = UIImage(contentsOfFile: imagePath)
+        if (image != nil) {
+            iconImg.image = image
+        }
+        iconImg.cornerRadius(radius: 18.IMGPX())
+        iconImg.isUserInteractionEnabled = true
+        iconImg.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(iconImgClick)))
         addSubview(iconImg)
         iconImg.snp.makeConstraints { (make) in
-            make.centerX.top.equalTo(bgShadowView)
-            make.width.height.equalTo(114.imgSize())
+            make.centerX.equalTo(bgShadowView)
+            make.centerY.equalTo(bgShadowView)
+            make.width.height.equalTo(114.IMGPX())
         }
         
-        //
-        let nameLabel = UILabel(title: "石头哥哥会放屁", color: .white, size: 18.imgSize(), weight: .medium)
+        nameLabel = UILabel(title: "\(UserDefaults.standard.string(forKey: NEAL_NAME_KEY)!)", color: .white, size: 18.IMGPX(), weight: .medium)
         addSubview(nameLabel)
         nameLabel.snp.makeConstraints { (make) in
-            make.left.equalTo(bgShadowView.snp_right).offset(60.imgSize())
-            make.top.equalTo(bgShadowView).offset(10.imgSize())
+            make.centerX.equalTo(iconImg.snp_right).offset(140.IMGPX())
+            make.top.equalTo(iconImg).offset(10.IMGPX())
         }
         
         //
-        let mlLabel = UILabel()
-        mlLabel.text = "2000"
+        mlLabel = UILabel()
+        mlLabel.text = "\(TodayViewModel.getTodayCount())"
         mlLabel.textColor = .white
-        mlLabel.font = UIFont(name: "Avenir-MediumOblique", size: 60.imgSize())
+        mlLabel.font = UIFont(name: "Avenir-MediumOblique", size: 60.IMGPX())
         mlLabel.textAlignment = .center
         addSubview(mlLabel)
         mlLabel.snp.makeConstraints { (make) in
             make.centerX.equalTo(nameLabel)
             make.top.equalTo(nameLabel.snp_bottom)
-            make.width.equalTo(200.imgSize())
+            make.width.equalTo(200.IMGPX())
         }
         
         //
-        let detailLabel = UILabel(title: "ML", color: .white, size: 15.imgSize(), weight: .medium)
+        let detailLabel = UILabel(title: "ML", color: .white, size: 15.IMGPX(), weight: .medium)
         detailLabel.alpha = 0.7
         addSubview(detailLabel)
         detailLabel.snp.makeConstraints { (make) in
-            make.right.equalTo(-40.imgSize())
-            make.bottom.equalTo(-5.imgSize())
+            make.right.equalTo(-40.IMGPX())
+            make.bottom.equalTo(-5.IMGPX())
         }
+    }
+    
+    public func loadImg() {
+        iconImg.image = UIImage(named: "icon")
+        let path = NSHomeDirectory()
+        let imagePath = path + "/Documents/icon.png"
+        let image = UIImage(contentsOfFile: imagePath)
+        if (image != nil) {
+            iconImg.image = image
+        }
+        nameLabel.text = "\(UserDefaults.standard.string(forKey: NEAL_NAME_KEY)!)"
+        mlLabel.text = "\(TodayViewModel.getTodayCount())"
+    }
+    
+    @objc func iconImgClick() {
+        topviewClickImg?()
     }
 
 }

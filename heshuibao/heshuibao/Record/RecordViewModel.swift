@@ -2,7 +2,7 @@
 //  RecordViewModel.swift
 //  heshuibao
 //
-//  Created by 王磊 on 2019/12/27.
+//  Created by 舒蕾 on 2019/12/27.
 //  Copyright © 2019 erlingerling. All rights reserved.
 //
 
@@ -55,12 +55,12 @@ class RecordViewModel: NSObject {
         }
         
         //打印
-        for item in items {
-            let fmt = DateFormatter()
-            fmt.dateFormat = "MM/dd"
-            let str = fmt.string(from: item.date!)
-            print("\(item.mlVlalue)" + "-----" +  "\(str)")
-        }
+//        for item in items {
+//            let fmt = DateFormatter()
+//            fmt.dateFormat = "MM/dd"
+//            let str = fmt.string(from: item.date!)
+//            print("\(item.mlVlalue)" + "-----" +  "\(str)")
+//        }
         
         return items
     }

@@ -8,11 +8,13 @@
 
 import UIKit
 import CoreData
+import GoogleMobileAds
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
     
     // coredata propties
     lazy var managedObjectModel: NSManagedObjectModel = {
@@ -57,6 +59,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
+        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = [(kGADSimulatorID as! String)]
+        FullMannager.shareManager().createAndLoadInterstitial()
+        
         window = UIWindow(frame: UIScreen.main.bounds)
         
         AppViewModel.checkDateAddRecord()
@@ -64,12 +70,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.makeKeyAndVisible()
         
+        UIApplication.shared.applicationIconBadgeNumber = 0
+        
         return true
     }
     
     //
     func applicationWillEnterForeground(_ application: UIApplication) {
         AppViewModel.checkDateAddRecord()
+        UIApplication.shared.applicationIconBadgeNumber = 0
     }
 
 

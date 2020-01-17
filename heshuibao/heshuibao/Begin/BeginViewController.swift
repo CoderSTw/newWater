@@ -2,7 +2,7 @@
 //  BeginViewController.swift
 //  heshuibao
 //
-//  Created by 王磊 on 2019/12/20.
+//  Created by 舒蕾 on 2019/12/20.
 //  Copyright © 2019 erlingerling. All rights reserved.
 //
 
@@ -37,8 +37,8 @@ class BeginViewController: UIViewController {
         view.addSubview(mainView)
         mainView.snp.makeConstraints { (make) in
             make.left.right.equalTo(view)
-            make.top.equalTo(145.imgSize())
-            make.bottom.equalTo(-230.imgSize())
+            make.top.equalTo(77.IMGPX() + NEW_AREA*2)
+            make.bottom.equalTo(-230.IMGPX())
         }
         
         //
@@ -48,16 +48,16 @@ class BeginViewController: UIViewController {
         view.addSubview(nextBtn)
         nextBtn.snp.makeConstraints { (make) in
             make.centerX.equalTo(view)
-            make.bottom.equalTo(-80.imgSize())
-            make.width.equalTo(340.imgSize())
-            make.height.equalTo(72.imgSize())
+            make.bottom.equalTo(-46.IMGPX() - NEW_AREA)
+            make.width.equalTo(340.IMGPX())
+            make.height.equalTo(72.IMGPX())
         }
         
-        nextLabel = UILabel(title: "下一步", color: .white, size: 18.imgSize(), weight: .medium)
+        nextLabel = UILabel(title: "下一步", color: .white, size: 18.IMGPX(), weight: .medium)
         nextBtn.addSubview(nextLabel)
         nextLabel.snp.makeConstraints { (make) in
             make.centerX.equalTo(nextBtn)
-            make.centerY.equalTo(nextBtn).offset(-3.imgSize())
+            make.centerY.equalTo(nextBtn).offset(-3.IMGPX())
         }
     }
 
@@ -68,7 +68,24 @@ extension BeginViewController {
         pageNum = pageNum + 1
         if pageNum==6 {
             // 开启通知哦！
-            dismiss(animated: true, completion: nil)
+            
+            ReminderManager.shareManager().checkReminderPower(NoQuanxianHandle: {
+                // 没有开启
+                DispatchQueue.main.async {
+                    self.dismiss(animated: true, completion: {
+                        WLHUD.shareHud().showWithSuccess(name: "稍后在设置中开启", Dismiss: {})
+                    })
+                }
+            }) {
+                // 开启
+                ReminderManager.shareManager().addReminder()
+                UserDefaults.standard.set(true, forKey: REMINDER_STATUS_KEY)
+                DispatchQueue.main.async {
+                    self.dismiss(animated: true, completion: {
+                        WLHUD.shareHud().showWithSuccess(name: "开启每日通知成功！", Dismiss: {})
+                    })
+                }
+            }
             return
         }
         
@@ -86,15 +103,15 @@ extension BeginViewController {
     
     private func lastBtn() {
         nextBtn.snp.updateConstraints { (make) in
-            make.bottom.equalTo(-150.imgSize())
+            make.bottom.equalTo(-150.IMGPX())
         }
         nextLabel.text = "开启通知并进入软件"
         
-        let jumpLabel = UILabel(title: "稍后开启通知", color: COLOR_DETAILTEXTCOLOR, size: 18.imgSize())
+        let jumpLabel = UILabel(title: "稍后开启通知", color: COLOR_DETAILTEXTCOLOR, size: 18.IMGPX())
         view.addSubview(jumpLabel)
         jumpLabel.snp.makeConstraints { (make) in
             make.centerX.equalTo(nextBtn)
-            make.top.equalTo(nextBtn.snp_bottom).offset(30.imgSize())
+            make.top.equalTo(nextBtn.snp_bottom).offset(30.IMGPX())
         }
         
         let jumpBtn = UIButton(type: .system)

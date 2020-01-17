@@ -2,7 +2,7 @@
 //  ReminderViewController.swift
 //  heshuibao
 //
-//  Created by 王磊 on 2019/12/20.
+//  Created by 舒蕾 on 2019/12/20.
 //  Copyright © 2019 erlingerling. All rights reserved.
 //
 
@@ -13,7 +13,7 @@ class ReminderViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .white
+        view.backgroundColor = COLOR_BGCOLOR
         
         setup()
     }
@@ -21,6 +21,7 @@ class ReminderViewController: UIViewController {
     //
     private var scrollView: UIScrollView!
     private var topview: RecordTopView!
+    private var timeView: ReminderTimeView!
     
     //
     private func setup() {
@@ -40,11 +41,11 @@ class ReminderViewController: UIViewController {
             make.left.equalTo(view)
             make.top.equalTo(topview.snp_bottom)
             make.width.equalTo(SCREEN_WIDTH)
-            make.bottom.equalTo(view)
+            make.bottom.equalTo(view).offset(-40-NEW_AREA-60)
         }
         
         // time
-        let timeView = ReminderTimeView()
+        timeView = ReminderTimeView()
         scrollView.addSubview(timeView)
         timeView.snp.makeConstraints { (make) in
             make.left.top.height.equalTo(scrollView)
@@ -68,6 +69,13 @@ class ReminderViewController: UIViewController {
             make.top.height.equalTo(scrollView)
             make.width.equalTo(SCREEN_WIDTH)
         }
+        
+        BannerManager().loadBanner(vc: self)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        timeView.checkStatus()
     }
 }
 

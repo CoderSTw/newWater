@@ -2,7 +2,7 @@
 //  ReocrdWeekCell.swift
 //  heshuibao
 //
-//  Created by 王磊 on 2019/12/25.
+//  Created by 舒蕾 on 2019/12/25.
 //  Copyright © 2019 erlingerling. All rights reserved.
 //
 
@@ -14,7 +14,7 @@ class ReocrdWeekCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         selectionStyle = .none
-        
+        backgroundColor = COLOR_BGCOLOR
         setup()
     }
     
@@ -60,9 +60,9 @@ class ReocrdWeekCell: UITableViewCell {
         dotImg = UIImageView(image: UIImage(named: "doneDot"))
         addSubview(dotImg)
         dotImg.snp.makeConstraints { (make) in
-            make.left.equalTo(25.imgSize())
+            make.left.equalTo(25.IMGPX())
             make.top.equalTo(self)
-            make.width.height.equalTo(18.imgSize())
+            make.width.height.equalTo(18.IMGPX())
         }
         
         let lineView = UIView()
@@ -71,22 +71,22 @@ class ReocrdWeekCell: UITableViewCell {
         lineView.snp.makeConstraints { (make) in
             make.centerX.equalTo(dotImg)
             make.top.equalTo(dotImg.snp_bottom)
-            make.width.equalTo(1.imgSize())
-            make.height.equalTo(50.imgSize())
+            make.width.equalTo(1.IMGPX())
+            make.height.equalTo(50.IMGPX())
         }
         
-        timeLabel = UILabel(title: "星期一  12 / 10", color: COLOR_DETAILTEXTCOLOR, size: 13.imgSize())
+        timeLabel = UILabel(title: "星期一  12 / 10", color: COLOR_DETAILTEXTCOLOR, size: 13.IMGPX())
         addSubview(timeLabel)
         timeLabel.snp.makeConstraints { (make) in
-            make.left.equalTo(dotImg.snp_right).offset(15.imgSize())
+            make.left.equalTo(dotImg.snp_right).offset(15.IMGPX())
             make.centerY.equalTo(dotImg)
         }
         
-        mlLabel = UILabel(title: "2.25 L", color: COLOR_MAINTEXTCOLOR, size: 18.imgSize())
+        mlLabel = UILabel(title: "2.25 L", color: COLOR_MAINTEXTCOLOR, size: 18.IMGPX())
         addSubview(mlLabel)
         mlLabel.snp.makeConstraints { (make) in
             make.left.equalTo(timeLabel)
-            make.top.equalTo(timeLabel.snp_bottom).offset(10.imgSize())
+            make.top.equalTo(timeLabel.snp_bottom).offset(10.IMGPX())
         }
         
         finishiView = WeekFinishView()
@@ -94,9 +94,9 @@ class ReocrdWeekCell: UITableViewCell {
         addSubview(finishiView)
         finishiView.snp.makeConstraints { (make) in
             make.centerY.equalTo(mlLabel)
-            make.right.equalTo(-25.imgSize())
-            make.width.equalTo(40.imgSize())
-            make.height.equalTo(16.imgSize())
+            make.right.equalTo(-25.IMGPX())
+            make.width.equalTo(40.IMGPX())
+            make.height.equalTo(16.IMGPX())
         }
     }
 }
@@ -144,11 +144,11 @@ class WeekFinishView: UIView {
         addSubview(img)
         img.snp.makeConstraints { (make) in
             make.center.equalTo(self)
-            make.width.equalTo(40.imgSize())
-            make.height.equalTo(16.imgSize())
+            make.width.equalTo(40.IMGPX())
+            make.height.equalTo(16.IMGPX())
         }
         
-        label = UILabel(title: "完成", color: .green, size: 10.imgSize())
+        label = UILabel(title: "完成", color: .green, size: 10.IMGPX())
         img.addSubview(label)
         label.snp.makeConstraints { (make) in
             make.center.equalTo(img)
